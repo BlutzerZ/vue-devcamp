@@ -2,25 +2,27 @@
     import axios from 'axios'
     import { ref } from 'vue';
 
-    const get_all_product = () => {
-        var res = axios.get('https://dummyjson.com/products');
+    var products = ref('')
 
-    }
-    get_all_product()
-    console.log(res)
-    // const products = get_all_product()
-    // const products = ref(['jsioasdof', 123121312, 123213])
-    // console.log(products.value)
-    // console.log(await get_all_product())
+    axios.get('https://jsonplaceholder.typicode.com/posts')
+        .then(response => {
+            products.value = response.data;
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    console.log(products)
 </script>
 
 <template>
     <div>
         <h1>Here</h1>
-        <!-- <ul class="bg-red-500">
+        <ul class="">
             <li v-for="product in products" :key="product.id">
-                {{ product }}
+                <p>{{ product.id }} - {{ product.title }}</p>
+                <p>desc: {{ product.body }}</p>
+                <br>
             </li>
-        </ul> -->
+        </ul>
     </div>
 </template>
