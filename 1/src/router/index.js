@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ListRendering from '../views/ListRendering.vue'
 import HandlingEvent from '../views/HandlingEvent.vue'
+import Products from '../views/Products.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,6 +22,11 @@ const router = createRouter({
       path: '/handling-event',
       name: 'he',
       component: HandlingEvent
+    },
+    {
+      path: '/product',
+      name: 'product',
+      component: Products
     },
     {
       path: '/about',
